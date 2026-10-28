@@ -1,0 +1,56 @@
+[package]
+edition = "2021"
+name = "mongodb-query-connector"
+version = "0.1.0"
+
+[dependencies]
+anyhow = "1.0"
+async-trait.workspace = true
+bigdecimal = "0.3"
+# bson = {version = "1.1.0", features = ["decimal128"]}
+futures = "0.3"
+itertools.workspace = true
+mongodb = "2.8.0"
+bson = { version = "2.4.0", features = ["chrono-0_4", "uuid-1"] }
+rand.workspace = true
+regex = "1"
+serde_json.workspace = true
+thiserror = "1.0"
+tokio.workspace = true
+tracing.workspace = true
+tracing-futures = "0.2"
+uuid.workspace = true
+indexmap.workspace = true
+query-engine-metrics = { path = "../../metrics" }
+cuid = { git = "https://github.com/prisma/cuid-rust", branch = "wasm32-support" }
+derive_more = "0.99.17"
+
+[dependencies.query-structure]
+path = "../../query-structure"
+
+[dependencies.mongodb-client]
+path = "../../../libs/mongodb-client"
+
+[dependencies.connector-interface]
+package = "query-connector"
+path = "../query-connector"
+
+[dependencies.prisma-value]
+path = "../../../libs/prisma-value"
+
+[dependencies.chrono]
+features = ["serde"]
+version = "0.4"
+
+[dependencies.psl]
+workspace = true
+
+[dependencies.serde]
+workspace = true
+
+[dependencies.user-facing-errors]
+features = ["sql"]
+workspace = true
+
+[dev-dependencies]
+pretty_assertions = "1.4.0"
