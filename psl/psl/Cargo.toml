@@ -1,0 +1,23 @@
+[package]
+name = "psl"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+postgresql = ["psl-core/postgresql"]
+sqlite = ["psl-core/sqlite"]
+mysql = ["psl-core/mysql"]
+cockroachdb = ["psl-core/cockroachdb"]
+mssql = ["psl-core/mssql"]
+mongodb = ["psl-core/mongodb"]
+all = ["postgresql", "sqlite", "mysql", "cockroachdb", "mssql", "mongodb"]
+
+[dependencies]
+psl-core = { path = "../psl-core" }
+
+[dev-dependencies]
+base64 = "0.13.0"
+dissimilar = "1.0.4"
+expect-test = "1.1.0"
+indoc.workspace = true
+either = "1.8.1"
