@@ -1,0 +1,16 @@
+[package]
+name = "sql-ddl"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+postgres = []
+mysql = []
+sqlite = []
+mssql = []
+default = ["postgres", "mysql", "sqlite", "mssql"]
+
+[dependencies]
+
+[dev-dependencies]
+indoc.workspace = true
