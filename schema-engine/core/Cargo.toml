@@ -1,0 +1,31 @@
+[package]
+edition = "2021"
+name = "schema-core"
+version = "0.1.0"
+
+[dependencies]
+psl = { workspace = true, features = ["all"] }
+schema-connector = { path = "../connectors/schema-connector" }
+mongodb-schema-connector = { path = "../connectors/mongodb-schema-connector" }
+sql-schema-connector = { path = "../connectors/sql-schema-connector" }
+user-facing-errors = { path = "../../libs/user-facing-errors", features = [
+    "all-native",
+] }
+
+async-trait.workspace = true
+chrono.workspace = true
+enumflags2.workspace = true
+jsonrpc-core = "17.0"
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber = "0.3"
+tracing-futures = "0.2"
+url.workspace = true
+
+[build-dependencies]
+json-rpc-api-build = { path = "../json-rpc-api-build" }
+
+[features]
+vendored-openssl = ["sql-schema-connector/vendored-openssl"]
